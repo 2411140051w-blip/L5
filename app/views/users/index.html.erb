@@ -1,0 +1,6 @@
+<% @user.each do |user| %>
+  <p>ユーザー名：<%= user.uid %></p>
+  
+<% end %>
+<p><%= link_to '新規追加', new_user_path></p>
+</div>

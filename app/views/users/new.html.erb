@@ -1,0 +1,23 @@
+<h3>新規登録</h3>
+<hr>
+<% if @user.errors.present? %>
+<h3>エラーがあります。</h3>
+<ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<hr>
+<% end %>
+
+<%= form_with model: @user do |f| %>
+  <p>
+  <%= f.label :uid, 'ユーザーID' %>
+  <%= f.text_field :uid %>
+  </p>
+  <p>
+  <%= f.label :pass, 'パスワード' %>
+  <%= f.text_field :pass %>
+  </p>
+  <%= f.submit '登録' %>
+<% end %>
