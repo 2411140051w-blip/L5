@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   stale_when_importmap_changes
 
   def L4
-    session[:login_uid] ||= nil
-    render plain: session[:login_uid]
+    session[:uid] ||= nil
+    render plain: session[:uid]
   end
 end

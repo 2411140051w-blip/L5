@@ -1,0 +1,23 @@
+<h3>新規ツイート</h3>
+<hr>
+<% if @tweet.errors.present? %>
+<h3>エラーがあります。</h3>
+<ul>
+  <% @tweet.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<hr>
+<% end %>
+
+<%= form_with model: @tweet do |f| %>
+  <p>
+  <%= f.label :user_id, 'ユーザーID' %>
+  <%= f.text_field :user_id %>
+  </p>
+  <p>
+  <%= f.label :message, 'ツイート' %>
+  <%= f.text_field :message %>
+  </p>
+  <%= f.submit '登録' %>
+<% end %>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     def index
         @user = User.all
+        @tweets = Tweet.includes(:user).all
     end
 
     def new
@@ -8,12 +9,12 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(uid: params[:user][:title], pass: params[:user][:pass])
+        @user = User.new(uid: params[:user][:uid], pass: params[:user][:pass])
         if @user.save
             flash[:notice] = 'ユーザを追加しました'
             redirect_to root_path #=>一覧ページにリダイレクトする
         else
-            render new_user_path, status: :unprocessable_content
+            render :new, status: :unprocessable_entity
         end
     end
 
