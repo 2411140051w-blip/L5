@@ -18,12 +18,12 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        @user = User.find(params[:uid])
+        @user = User.find(params[:id])
     if @user.destroy
-      flash[:notice] = '１レコード削除しました'
-      redirect_to root_path
+        flash[:notice] = '１レコード削除しました'
+        redirect_to root_path
     else
-      flash[:notice] = '削除に失敗しました'
+        flash[:notice] = '削除に失敗しました'
     end
     end
         
