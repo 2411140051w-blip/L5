@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         user.update(uid: params[:user][:uid])
 
         if user.update(uid: params[:user][:uid])
-            session[:login_uid] = user.uid if session[:login_uid] == old_uid
+            session[:login_uid] = user.uid
         end
         redirect_to users_path
     end
