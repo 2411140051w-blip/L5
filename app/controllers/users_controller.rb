@@ -35,6 +35,10 @@ class UsersController < ApplicationController
     def update
         user = User.find(params[:id])
         user.update(uid: params[:user][:uid])
+
+        if user.update(uid: params[:user][:uid])
+            session[:login_uid] = user.uid if session[:login_uid] == old_uid
+        end
         redirect_to users_path
     end
         
