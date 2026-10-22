@@ -1,0 +1,8 @@
+<%= form_with model: @user do |f| %>
+  <p>変更中のユーザー： <%= @user.uid %></p>
+  <p>
+  <%= f.label :uid, 'ユーザーID' %>
+  <%= f.text_field :uid %>
+  </p>
+  <%= f.submit '更新' %>
+<% end %>

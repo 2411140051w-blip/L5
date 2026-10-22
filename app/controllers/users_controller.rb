@@ -27,5 +27,15 @@ class UsersController < ApplicationController
         flash[:notice] = '削除に失敗しました'
     end
     end
+
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        user = User.find(params[:id])
+        user.update(uid: params[:user][:uid])
+        redirect_to users_path
+    end
         
 end

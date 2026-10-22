@@ -1,8 +1,5 @@
-<% @user.each do |user| %>
-  <p>ユーザー名：<%= user.uid %><%= link_to '削除', user_path(user), data: { turbo_method: :delete } %> 
-  </p><%= link_to '新規追加', new_user_path %></p>
-  <p><%= link_to 'logout', top_logout_path %></p>
-<% end %>
+<p>ログイン中のユーザー: <%= session[user_uid] %></p>
+<p><%= link_to '削除', user_mgr_user_path %></p>
 <hr>
 <hr>
 <% @tweets.each do |tweet| %>
