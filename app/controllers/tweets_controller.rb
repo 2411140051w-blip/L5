@@ -8,7 +8,8 @@ class TweetsController < ApplicationController
     end
 
     def create
-        @tweet = Tweet.new(user_id: params[:tweet][:user_id], message: params[:tweet][:message])
+        user = User.find_by(uid: session[:login_uid])
+        @tweet = Tweet.new(user_id: user.id , message: params[:tweet][:message])
         if @tweet.save
             flash[:notice] = 'ユーザを追加しました'
             redirect_to root_path #=>一覧ページにリダイレクトする

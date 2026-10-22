@@ -1,6 +1,7 @@
 <% @user.each do |user| %>
-  <p>ユーザー名：<%= user.uid %></p>
-  <p><%= link_to '削除', user_path(user), data: { turbo_method: :delete } %> <%= link_to '新規追加', new_user_path %></p>
+  <p>ユーザー名：<%= user.uid %><%= link_to '削除', user_path(user), data: { turbo_method: :delete } %> 
+  </p><%= link_to '新規追加', new_user_path %></p>
+  <p><%= link_to 'logout', top_logout_path %></p>
 <% end %>
 <hr>
 <hr>
@@ -13,4 +14,3 @@
   <hr>
 <% end %>
 <%= link_to '新規追加', new_tweet_path %>
-<%= link_to 'logout', top_logout_path %>
