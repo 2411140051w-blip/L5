@@ -1,7 +1,7 @@
-<p>ログイン中のユーザー: <%= session[:login_uid] %></p>
+<p>ログイン中のユーザー： <%= session[:login_uid] %></p>
 <p><%= link_to 'logout', top_logout_path %></p>
 <hr>
-<p>その他のユーザー</p>
+<p>すべてのユーザー：</p>
 <% @user.each do |user| %>
   <p>ユーザー名：<%= user.uid %> <%= link_to '削除', user_path(user), data: { turbo_method: :delete } %> <%= link_to 'ユーザーID変更', edit_user_path(user) %>
   </p><%= link_to '新規追加', new_user_path %></p>
