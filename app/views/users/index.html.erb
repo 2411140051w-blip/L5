@@ -3,7 +3,7 @@
 <hr>
 <p>すべてのユーザー：</p>
 <% @users.each do |user| %>
-  <p>uid： <%= user.uid %> , password_digest： <%= e.password_digest %> 
+  <p>uid： <%= user.uid %> , password_digest： <%= user.password_digest %> 
   <%= link_to '削除', user_path(user), data: { turbo_method: :delete } %> <%= link_to 'ユーザーID変更', edit_user_path(user) %>
   </p><%= link_to '新規追加', new_user_path %></p>
 <% end %>
