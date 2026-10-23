@@ -16,8 +16,12 @@
   <%= f.text_field :uid %>
   </p>
   <p>
-  <%= f.label :pass, 'パスワード' %>
+  <%= f.label :password, 'パスワード' %>
   <%= f.text_field :pass %>
+  </p>
+  <p>
+  <%= f.label :password_confirmation, 'パスワード（確認）' %>
+  <%= f.text_field :password_confirmation %>
   </p>
   <%= f.submit '登録' %>
 <% end %>

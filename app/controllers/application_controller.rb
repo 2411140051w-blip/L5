@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
     session[:login_uid] ||= nil
     render plain: session[:login_uid]
   end
+
+  helper_method :current_user
+  private
+    def current_user
+      if session[:login_uid]
+        User.find_by(uid: session[:login_uid])
+      end
+    end
 end

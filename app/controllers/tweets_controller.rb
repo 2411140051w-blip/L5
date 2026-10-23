@@ -12,9 +12,9 @@ class TweetsController < ApplicationController
         @tweet = Tweet.new(user_id: user.id , message: params[:tweet][:message])
         if @tweet.save
             flash[:notice] = 'ユーザを追加しました'
-            redirect_to root_path #=>一覧ページにリダイレクトする
+            redirect_to users_path #=>一覧ページにリダイレクトする
         else
-            render new_tweet_path, status: :unprocessable_content
+            render users_path, status: :unprocessable_content
         end
     end
 
@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
         @tweet = Tweet.find(params[:id])
     if @tweet.destroy
         flash[:notice] = '１レコード削除しました'
-        redirect_to root_path
+        redirect_to users_path
     else
         flash[:notice] = '削除に失敗しました'
     end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def index
-        @user = User.all
+        @users = User.all
         @tweets = Tweet.includes(:user).all
     end
 
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(uid: params[:user][:uid], pass: params[:user][:pass])
+        @user = User.new(uid: params[:user][:uid], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
         if @user.save
             flash[:notice] = 'ユーザを追加しました'
             redirect_to users_path #=>一覧ページにリダイレクトする
